@@ -1,4 +1,5 @@
 # Welcome To OpenVoice OS Getting Started User Guide
+This section assumes you want to install the Open Voice Operating System.  If you just want to install "OVOS core" on to an existing Linux OS, go [here](https://openvoiceos.github.io/community-docs/core/).
 
 You can find a PDF of a "Getting Started Guide" [here](https://github.com/OpenVoiceOS/ovos_assets/raw/master/printables/device-getting-started-guide.pdf).
 
