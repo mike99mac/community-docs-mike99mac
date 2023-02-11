@@ -1,12 +1,14 @@
 # Welcome To OpenVoice OS Getting Started User Guide
 
-You can find a pdf version of a getting started guide [here](https://github.com/OpenVoiceOS/ovos_assets/raw/master/printables/device-getting-started-guide.pdf)
+You can find a pdf version of a getting started guide [here](https://github.com/OpenVoiceOS/ovos_assets/raw/master/printables/device-getting-started-guide.pdf).
 
 ### Where to get OVOS?
 
 OVOS is in early stages, we publish our raspberry pi images for download but expect new bugs and new fixes on every release, we are not yet stable!
 
-These images are development images in alpha stage, bugs and incomplete features are guaranteed
+These images are development images in alpha stage, bugs and incomplete features are guaranteed.
+
+There are two images to choose from: *buildroot* aims to be a consumer ready firmware based OS where *Manjaro* is the Manjaro Linux OS with an entire software stack including the OVOS core. There is a comparison [here](https://openvoiceos.github.io/community-docs/comparison/)
 
 Download Images:
 
@@ -23,7 +25,7 @@ Build images from scratch:
 
 ### Flashing your image
 
-Flashing your image to your sdcard or USB drive is not different than flashing any other image. For the non-technical users we advise to use the flashing utility from the Raspberry Pi Foundation which you can find [here](https://www.raspberrypi.com/software/).
+Flashing your image to your sdcard or USB drive is not different than flashing any other image. For the non-technical users we advise to use the flashing utility from the Raspberry Pi Foundation which you can find [here](https://www.raspberrypi.com/software/). Here is a high-level description of the process:
 Under "CHOOSE OS" select custom at the very bottom of the list and browse to the downloaded image file. It is not required to unzip / unpack the image as the Raspberry Pi imager software can do that for you on the fly.
 Under "CHOOSE STORAGE" select your sdcard or USB device.
 
