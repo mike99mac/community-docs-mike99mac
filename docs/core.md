@@ -8,8 +8,15 @@ All Mycroft Skills and Plugins should work normally with OVOS-core.
 
 OVOS-core is fully modular. Furthermore, common components have been repackaged as plugins. That means it isn't just a great assistant on its own, but also a pretty small library!
 
+## Get the code
+Start by cloning the OVOS-core code in your home directory.
+```
+$ cd
+$ git clone https://github.com/OpenVoiceOS/ovos-core
+...
+```
 ## Create a virtual environment
-It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps
+It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps.
 - Create a virtual environment named venv and symlink .venv to it.
 ```
 $ python3 -m venv /home/pi/ovos-core/venv
@@ -17,7 +24,7 @@ $ python3 -m venv /home/pi/ovos-core/venv
 $ ln -s venv .venv
 
 ```
-- Go into the virtual environment
+- Go into the virtual environment.
 ```
 $ source /home/pi/ovos-core/venv/bin/activate
 ```
@@ -32,9 +39,9 @@ $ source /home/pi/ovos-core/venv/bin/activate
 (venv) $ tar xvf SuiteSparse-5.4.0.tar.gz
 (venv) $ export CVXOPT_SUITESPARSE_SRC_DIR=~/ovos-core/SuiteSparse
 ```
-- Install silero and adapt with pip. This can take up to ten minutes.
+- Install the following packages with pip. This can take up to ten minutes.
 ```
-(venv) $ pip install silero adapt 
+(venv) $ pip install silero adapt wheel
 ...
 ```
 ## Install OVOS core
@@ -46,9 +53,14 @@ if you want to fine-tune the components please replace `[all]` in commands below
 
 OVOS-core can be installed from pypi or from source.
 ### Install from pypi
-This step can take up to an hour.
+You can install either beta or stable code.  Choose one. Both of these step can take up to an hour.
+- To install beta code, perform the following. 
 ```
-(venv) $ pip install ovos-core[all,skills-essential]
+(venv) $ pip install --pre ovos-core[all]
+...
+- To install stable code, perform the following.
+```
+(venv) $ pip install ovos-core[ bus,skills,audio,skills-essential]
 ...
 ```
 If the install fails you may need to install some system dependencies, how to do this will depend on your distro.
