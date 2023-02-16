@@ -11,56 +11,56 @@ OVOS-core is fully modular. Furthermore, common components have been repackaged 
 
 ## Getting Started
 
-OVOS-core is very modular, depending on where you are running OVOS-core you may want to run only a subset of the services
+OVOS-core is very modular, depending on where you are running OVOS-core you may want to run only a subset of the services.
 
-by default OVOS-core only installs the minimum components common to all services, for the purposes of this document we will assume you want a full install
+By default OVOS-core only installs the minimum components common to all services, for the purposes of this document we will assume you want a full install.
 
-if you want to finetune the components please replace `[all]` in commands below with the subset of desired extras, eg `[skills,bus]`
+if you want to fine-tune the components please replace `[all]` in commands below with the subset of desired extras, eg `[skills,bus]`
 
-## Creating a virtual environment
+## Create a virtual environment
 It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps
 - Create a virtual environment named venv and symlink it to .venv
 ```
-$ python3 -m venv /home/pi/ovos-core/venv
-
-$ ln -s venv .venv
+  $ python3 -m venv /home/pi/ovos-core/venv
+  ...
+  $ ln -s venv .venv
 
 ```
 - Go into the virtual environment
 ```
   $ source /home/pi/ovos-core/venv/bin/activate
 ```
-- Install co-requisite software
+## Install co-requisite software
+- Install packages with ``apt-get``. This steps can take a few minutes.
 ```
-  $ sudo apt install build-essential python3-dev swig libssl-dev libfann-dev libpulse-dev libasound2-dev mpg123 portaudio19-dev python3-pyaudio
-  $ pip install silero
+(venv) $ sudo apt-get install -y build-essential python3-dev swig libssl-dev libfann-dev libpulse-dev libasound2-dev mpg123 portaudio19-dev python3-pyaudio liblapack-dev libopenblas-dev
 ```
-- Install OVOS core
+- Download the source code of SuiteSparse, untar it, and export the environment variable ``CVXOPT_SUITESPARSE_SRC_DIR``. It will be needed to install adapt.
 ```
-  $ pip install ovos-core[all,skills-essential]
+(venv) $ wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
+(venv) $ tar xvf SuiteSparse-5.4.0.tar.gz
+(venv) $ export CVXOPT_SUITESPARSE_SRC_DIR=~/ovos-core/SuiteSparse
 ```
-## Installing OVOS-core
+- Install silero and adapt with pip.
+```
+(venv) $ pip install silero adapt 
+...
+```
 
+## Install OVOS core
 OVOS-core can be installed from pypi or from source.
+### Install from pypi
+This step can take up to an hour.
+```
+(venv) $ pip install ovos-core[all,skills-essential]
+...
+```
+If the install fails you may need to install some system dependencies, how to do this will depend on your distro.
 
-if install fails you may need to install some system dependencies, how to do this will depend on your distro.
-
-
-**Note**: MycroftAI's `dev_setup.sh` does not exist in OVOS-core.
-
-
-### from source
-
-We suggest you do this in a virtualenv:
-
+### Install from source
 `pip install git+https://github.com/OpenVoiceOS/ovos-core[all]`
-
-### from pypi
-
-`pip install ovos-core[all]`
-
 ## Running ovos-core
-
+**Note**: MycroftAI's `dev_setup.sh` does not exist in OVOS-core.
 ### Developer launcher script
 
 `start-mycroft.sh` is available to perform common tasks.
