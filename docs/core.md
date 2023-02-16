@@ -1,4 +1,4 @@
-# ovos-core
+# OVOS-core
 
 [OpenVoiceOS](https://openvoiceos.com/) is an open source platform for smart speakers and other voice-centric devices.
 
@@ -11,21 +11,40 @@ OVOS-core is fully modular. Furthermore, common components have been repackaged 
 
 ## Getting Started
 
-ovos-core is very modular, depending on where you are running ovos-core you may want to run only a subset of the services
+OVOS-core is very modular, depending on where you are running OVOS-core you may want to run only a subset of the services
 
-by default ovos-core only installs the minimum components common to all services, for the purposes of this document we will assume you want a full install
+by default OVOS-core only installs the minimum components common to all services, for the purposes of this document we will assume you want a full install
 
 if you want to finetune the components please replace `[all]` in commands below with the subset of desired extras, eg `[skills,bus]`
 
-## Installing ovos-core
-
-ovos-core can be installed from pypi or from source
-
-if install fails you may need to install some system dependencies, how to do this will depend on your distro
-
-```bash
-sudo apt install build-essential python3-dev swig libssl-dev libfann-dev portaudio19-dev libpulse-dev
+## Creating a virtual environment
+It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps
+- Create a virtual environment named venv and symlink it to .venv
 ```
+$ python3 -m venv /home/pi/ovos-core/venv
+
+$ ln -s venv .venv
+
+```
+- Go into the virtual environment
+```
+  $ source /home/pi/ovos-core/venv/bin/activate
+```
+- Install co-requisite software
+```
+  $ sudo apt install build-essential python3-dev swig libssl-dev libfann-dev libpulse-dev libasound2-dev mpg123 portaudio19-dev python3-pyaudio
+  $ pip install silero
+```
+- Install OVOS core
+```
+  $ pip install ovos-core[all,skills-essential]
+```
+## Installing OVOS-core
+
+OVOS-core can be installed from pypi or from source.
+
+if install fails you may need to install some system dependencies, how to do this will depend on your distro.
+
 
 **Note**: MycroftAI's `dev_setup.sh` does not exist in OVOS-core.
 
