@@ -8,27 +8,18 @@ All Mycroft Skills and Plugins should work normally with OVOS-core.
 
 OVOS-core is fully modular. Furthermore, common components have been repackaged as plugins. That means it isn't just a great assistant on its own, but also a pretty small library!
 
-
-## Getting Started
-
-OVOS-core is very modular, depending on where you are running OVOS-core you may want to run only a subset of the services.
-
-By default OVOS-core only installs the minimum components common to all services, for the purposes of this document we will assume you want a full install.
-
-if you want to fine-tune the components please replace `[all]` in commands below with the subset of desired extras, eg `[skills,bus]`
-
 ## Create a virtual environment
 It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps
-- Create a virtual environment named venv and symlink it to .venv
+- Create a virtual environment named venv and symlink .venv to it.
 ```
-  $ python3 -m venv /home/pi/ovos-core/venv
-  ...
-  $ ln -s venv .venv
+$ python3 -m venv /home/pi/ovos-core/venv
+...
+$ ln -s venv .venv
 
 ```
 - Go into the virtual environment
 ```
-  $ source /home/pi/ovos-core/venv/bin/activate
+$ source /home/pi/ovos-core/venv/bin/activate
 ```
 ## Install co-requisite software
 - Install packages with ``apt-get``. This steps can take a few minutes.
@@ -41,13 +32,18 @@ It is recommended that you install OVOS-core in a Python virtual environment. To
 (venv) $ tar xvf SuiteSparse-5.4.0.tar.gz
 (venv) $ export CVXOPT_SUITESPARSE_SRC_DIR=~/ovos-core/SuiteSparse
 ```
-- Install silero and adapt with pip.
+- Install silero and adapt with pip. This can take up to ten minutes.
 ```
 (venv) $ pip install silero adapt 
 ...
 ```
-
 ## Install OVOS core
+OVOS-core is very modular, depending on where you are running OVOS-core you may want to run only a subset of the services.
+
+By default OVOS-core only installs the minimum components common to all services, for the purposes of this document we will assume you want a full install.
+
+if you want to fine-tune the components please replace `[all]` in commands below with the subset of desired extras, eg `[skills,bus]`
+
 OVOS-core can be installed from pypi or from source.
 ### Install from pypi
 This step can take up to an hour.
@@ -58,20 +54,22 @@ This step can take up to an hour.
 If the install fails you may need to install some system dependencies, how to do this will depend on your distro.
 
 ### Install from source
-`pip install git+https://github.com/OpenVoiceOS/ovos-core[all]`
+```
+(venv) $ pip install git+https://github.com/OpenVoiceOS/ovos-core
+```
 ## Running ovos-core
 **Note**: MycroftAI's `dev_setup.sh` does not exist in OVOS-core.
 ### Developer launcher script
 
 `start-mycroft.sh` is available to perform common tasks.
 
-
 Assuming you installed ovos-core in your home directory, run:
+```
+(venv) $ cd ~/ovos-core
+(venv) $ ./start-mycroft.sh debug
+```
 
-- `cd ~/ovos-core`
-- `./start-mycroft.sh debug`
-
-The "debug" command will start the background services (microphone listener, skill, messagebus, and audio subsystems) as
+The "debug" argument will start the background services (microphone listener, skill, messagebus, and audio subsystems) as
 well as bringing up a text-based Command Line Interface (CLI) you can use to interact with Mycroft and see the contents
 of the various logs. Alternatively you can run `./start-mycroft.sh all` to begin the services without the command line
 interface. Later you can bring up the CLI using `./start-mycroft.sh cli`.
@@ -79,7 +77,6 @@ interface. Later you can bring up the CLI using `./start-mycroft.sh cli`.
 The background services can be stopped as a group with:
 
 - `./stop-mycroft.sh`
-
 
 ### Automatically on boot
 
