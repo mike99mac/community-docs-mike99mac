@@ -41,7 +41,7 @@ $ source ~/ovos-core/venv/bin/activate
 ```
 - Install the following packages with pip. This can take up to ten minutes.
 ```
-(venv) $ pip install silero adapt wheel
+(venv) $ pip install silero adapt wheel tornado
 ...
 ```
 ## Install OVOS core
