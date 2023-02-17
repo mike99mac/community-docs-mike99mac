@@ -19,14 +19,14 @@ $ git clone https://github.com/OpenVoiceOS/ovos-core
 It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps.
 - Create a virtual environment named venv and symlink .venv to it.
 ```
-$ python3 -m venv /home/pi/ovos-core/venv
+$ python3 -m venv ~/ovos-core/venv
 ...
 $ ln -s venv .venv
 
 ```
-- Go into the virtual environment.
+- Activate the virtual environment.
 ```
-$ source /home/pi/ovos-core/venv/bin/activate
+$ source ~/ovos-core/venv/bin/activate
 ```
 ## Install co-requisite software
 - Install packages with ``apt-get``. This steps can take a few minutes.
@@ -53,14 +53,15 @@ if you want to fine-tune the components please replace `[all]` in commands below
 
 OVOS-core can be installed from pypi or from source.
 ### Install from pypi
-You can install either beta or stable code.  Choose one. Both of these step can take up to an hour.
+You can install either beta or stable code.  Choose one.
 - To install beta code, perform the following. 
 ```
 (venv) $ pip install --pre ovos-core[all]
 ...
+```
 - To install stable code, perform the following.
 ```
-(venv) $ pip install ovos-core[ bus,skills,audio,skills-essential]
+(venv) $ pip install ovos-core[bus,skills,audio,skills-essential]
 ...
 ```
 If the install fails you may need to install some system dependencies, how to do this will depend on your distro.
