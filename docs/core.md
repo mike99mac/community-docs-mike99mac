@@ -19,7 +19,8 @@ $ git clone https://github.com/OpenVoiceOS/ovos-core
 It is recommended that you install OVOS-core in a Python virtual environment. To do so, perform the following steps.
 - Create a virtual environment named venv and symlink .venv to it.
 ```
-$ python3 -m venv ~/ovos-core/venv
+$ cd ovos-core
+$ python3 -m venv venv
 ...
 $ ln -s venv .venv
 
@@ -41,7 +42,7 @@ $ source ~/ovos-core/venv/bin/activate
 ```
 - Install the following packages with pip. This can take up to ten minutes.
 ```
-(venv) $ pip install silero adapt wheel tornado
+(venv) $ pip install silero adapt wheel tornado ovos-plugin-vlc ovos-test-ocp-audio-plugin ovos-ocp-news-plugin ovos-vad-plugin-webrtcvad
 ...
 ```
 ## Install OVOS core
@@ -61,7 +62,7 @@ You can install either beta or stable code.  Choose one.
 ```
 - To install stable code, run the following command.
 ```
-(venv) $ pip install ovos-core[bus,skills,audio,skills-essential]
+(venv) $ pip install ovos-core[all,skills-essential]
 ...
 ```
 If the install fails you may need to install some system dependencies, how to do this will depend on your distro.
@@ -79,7 +80,7 @@ If the install fails you may need to install some system dependencies, how to do
 Assuming you installed ovos-core in your home directory, run:
 ```
 (venv) $ cd ~/ovos-core
-(venv) $ ./start-mycroft.sh debug
+(venv) $ ./start-mycroft.sh all
 ```
 
 The "debug" argument will start the background services (microphone listener, skill, messagebus, and audio subsystems) as
